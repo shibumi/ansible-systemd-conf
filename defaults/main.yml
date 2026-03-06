@@ -4,6 +4,7 @@ systemd_conf: {}
 systemd_conf_link: {}
 systemd_conf_netdev: {}
 systemd_conf_network: {}
+systemd_conf_path: {}
 systemd_conf_service: {}
 systemd_conf_timer: {}
 

@@ -44,6 +44,15 @@
     mode: 0644
   loop: "{{ systemd_conf | dict2items }}"
 
+- name: copy .path profiles
+  template:
+    src: "systemd_conf.j2"
+    dest: "/etc/systemd/system/{{ item.key }}.path"
+    mode: 0644
+  loop: "{{ systemd_conf_path | dict2items }}"
+  notify:
+    - daemon-reload
+
 - name: copy .service profiles
   template:
     src: "systemd_conf.j2"

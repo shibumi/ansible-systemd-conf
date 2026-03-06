@@ -16,6 +16,7 @@ systemd_conf: {}
 systemd_conf_link: {}
 systemd_conf_netdev: {}
 systemd_conf_network: {}
+systemd_conf_path: {}
 systemd_conf_service: {}
 systemd_conf_timer: {}
 ```
@@ -121,6 +122,18 @@ systemd_conf_timer:
       - WantedBy: "timers.target"
 ```
 
+6) Configure a systemd path
+```yaml
+systemd_conf_path:
+    passwd-mon:
+    - Unit:
+      - Description: "Monitor the /etc/passwd file for changes"
+    - Path:
+      - PathModified: "/etc/passwd"
+      - Unit: "passwd-mon.service"
+    - Install:
+      - WantedBy: "multi-user.target"
+```
 
 License
 -------
